@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SuperSocket.Dlr</name>
+    </assembly>
+    <members>
+        <member name="T:SuperSocket.Dlr.DynamicCommandLoader`1">
+            <summary>
+            DynamicCommandLoader
+            </summary>
+        </member>
+        <member name="T:SuperSocket.Dlr.DynamicCommandLoaderBase`1">
+            <summary>
+            Which is used for loading dynamic script file
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoaderBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SuperSocket.Dlr.DynamicCommandLoaderBase`1"/> class.
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoaderBase`1.#ctor(Microsoft.Scripting.Hosting.ScriptRuntime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SuperSocket.Dlr.DynamicCommandLoaderBase`1"/> class.
+            </summary>
+            <param name="scriptRuntime">The script runtime.</param>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoaderBase`1.GetScriptSources(SuperSocket.SocketBase.Config.IRootConfig,SuperSocket.SocketBase.IAppServer)">
+            <summary>
+            Gets the script sources.
+            </summary>
+            <param name="rootConfig">The root config.</param>
+            <param name="appServer">The app server.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoaderBase`1.Initialize(SuperSocket.SocketBase.Config.IRootConfig,SuperSocket.SocketBase.IAppServer)">
+            <summary>
+            Initializes the command loader by the root config and the appserver instance.
+            </summary>
+            <param name="rootConfig">The root config.</param>
+            <param name="appServer">The app server.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoaderBase`1.TryLoadCommands(System.Collections.Generic.IEnumerable{`0}@)">
+            <summary>
+            Tries to load commands.
+            </summary>
+            <param name="commands">The commands.</param>
+            <returns></returns>
+        </member>
+        <member name="P:SuperSocket.Dlr.DynamicCommandLoaderBase`1.ScriptRuntime">
+            <summary>
+            Gets the script runtime.
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoader`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SuperSocket.Dlr.DynamicCommandLoader`1"/> class.
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoader`1.#ctor(Microsoft.Scripting.Hosting.ScriptRuntime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SuperSocket.Dlr.DynamicCommandLoader`1"/> class.
+            </summary>
+            <param name="scriptRuntime">The script runtime.</param>
+        </member>
+        <member name="M:SuperSocket.Dlr.DynamicCommandLoader`1.GetScriptSources(SuperSocket.SocketBase.Config.IRootConfig,SuperSocket.SocketBase.IAppServer)">
+            <summary>
+            Gets the script sources.
+            </summary>
+            <param name="rootConfig">The root config.</param>
+            <param name="appServer">The app server.</param>
+            <returns></returns>
+        </member>
+        <member name="T:SuperSocket.Dlr.ScriptSourceBase">
+            <summary>
+            ScriptSourceBase
+            </summary>
+        </member>
+        <member name="T:SuperSocket.Dlr.IScriptSource">
+            <summary>
+            DynamicCommandSource interface
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.IScriptSource.GetScriptCode">
+            <summary>
+            Gets the script code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SuperSocket.Dlr.IScriptSource.Name">
+            <summary>
+            Gets the name matches with the command anme.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.IScriptSource.LanguageExtension">
+            <summary>
+            Gets the language extension.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.IScriptSource.Tag">
+            <summary>
+            Gets the tag, a string can identify the script source.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.IScriptSource.LastUpdatedTime">
+            <summary>
+            Gets the last updated time.
+            </summary>
+        </member>
+        <member name="M:SuperSocket.Dlr.ScriptSourceBase.GetScriptCode">
+            <summary>
+            Gets the script code.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SuperSocket.Dlr.ScriptSourceBase.Name">
+            <summary>
+            Gets the name matches with the command anme.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.ScriptSourceBase.LanguageExtension">
+            <summary>
+            Gets the language extension.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.ScriptSourceBase.Tag">
+            <summary>
+            Gets the tag.
+            </summary>
+        </member>
+        <member name="P:SuperSocket.Dlr.ScriptSourceBase.LastUpdatedTime">
+            <summary>
+            Gets the last updated time.
+            </summary>
+        </member>
+    </members>
+</doc>

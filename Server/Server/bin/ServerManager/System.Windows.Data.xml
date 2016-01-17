@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Windows.Data</name>
+  </assembly>
+  <members>
+    <member name="T:System.ComponentModel.IPagedCollectionView">
+      <summary>Defines methods and properties that a collection view implements to provide paging capabilities to a collection.</summary>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.CanChangePage">
+      <summary>Gets a value that indicates whether the <see cref="P:System.ComponentModel.IPagedCollectionView.PageIndex" /> value can change.</summary>
+      <returns>true if the <see cref="P:System.ComponentModel.IPagedCollectionView.PageIndex" /> value can change; otherwise, false.</returns>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.IsPageChanging">
+      <summary>Gets a value that indicates whether the page index is changing.</summary>
+      <returns>true if the page index is changing; otherwise, false.</returns>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.ItemCount">
+      <summary>Gets the number of known items in the view before paging is applied.</summary>
+      <returns>The number of known items in the view before paging is applied.</returns>
+    </member>
+    <member name="M:System.ComponentModel.IPagedCollectionView.MoveToFirstPage">
+      <summary>Sets the first page as the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.ComponentModel.IPagedCollectionView.MoveToLastPage">
+      <summary>Sets the last page as the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.ComponentModel.IPagedCollectionView.MoveToNextPage">
+      <summary>Moves to the page after the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.ComponentModel.IPagedCollectionView.MoveToPage(System.Int32)">
+      <summary>Moves to the page at the specified index.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+      <param name="pageIndex">The index of the page to move to.</param>
+    </member>
+    <member name="M:System.ComponentModel.IPagedCollectionView.MoveToPreviousPage">
+      <summary>Moves to the page before the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="E:System.ComponentModel.IPagedCollectionView.PageChanged">
+      <summary>When implementing this interface, raise this event after the <see cref="P:System.ComponentModel.IPagedCollectionView.PageIndex" /> has changed.</summary>
+    </member>
+    <member name="E:System.ComponentModel.IPagedCollectionView.PageChanging">
+      <summary>When implementing this interface, raise this event before changing the <see cref="P:System.ComponentModel.IPagedCollectionView.PageIndex" />. The event handler can cancel this event.</summary>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.PageIndex">
+      <summary>Gets the zero-based index of the current page.</summary>
+      <returns>The zero-based index of the current page.</returns>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.PageSize">
+      <summary>Gets or sets the number of items to display on a page.</summary>
+      <returns>The number of items to display on a page.</returns>
+    </member>
+    <member name="P:System.ComponentModel.IPagedCollectionView.TotalItemCount">
+      <summary>Gets the total number of items in the view before paging is applied.</summary>
+      <returns>The total number of items in the view before paging is applied, or -1 if the total number is unknown.</returns>
+    </member>
+    <member name="T:System.ComponentModel.PageChangingEventArgs">
+      <summary>Provides data for the <see cref="E:System.ComponentModel.IPagedCollectionView.PageChanging" /> event.</summary>
+    </member>
+    <member name="M:System.ComponentModel.PageChangingEventArgs.#ctor(System.Int32)">
+      <summary>Initializes a new instance of the <see cref="T:System.ComponentModel.PageChangingEventArgs" /> class.</summary>
+      <param name="newPageIndex">The index of the requested page.</param>
+    </member>
+    <member name="P:System.ComponentModel.PageChangingEventArgs.NewPageIndex">
+      <summary>Gets the index of the requested page.</summary>
+      <returns>The index of the requested page.</returns>
+    </member>
+    <member name="T:System.Windows.Data.GroupDescriptionSelectorCallback">
+      <summary>Represents a method that is used to provide custom logic to select the <see cref="T:System.ComponentModel.GroupDescription" /> based on the parent group and its level.</summary>
+      <returns>The selected <see cref="T:System.ComponentModel.GroupDescription" /> based on the parent group and its level.</returns>
+      <param name="group">The parent group.</param>
+      <param name="level">The level of <paramref name="group" />.</param>
+    </member>
+    <member name="T:System.Windows.Data.PagedCollectionView">
+      <summary>Represents a view for grouping, sorting, filtering, and navigating a paged data collection.</summary>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.#ctor(System.Collections.IEnumerable)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Data.PagedCollectionView" /> class.</summary>
+      <param name="source">The source for the collection.</param>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.#ctor(System.Collections.IEnumerable,System.Boolean,System.Boolean)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Data.PagedCollectionView" /> class and specifies whether the data is sorted and in group order.</summary>
+      <param name="source">The source for the collection.</param>
+      <param name="isDataSorted">Specifies whether the source is already sorted.</param>
+      <param name="isDataInGroupOrder">Specifies whether the source is already in the correct order for grouping.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="source" /> is null.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.AddNew">
+      <summary>Adds a new item to the underlying collection. </summary>
+      <returns>The new item that is being added.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.CanAddNew" /> is false.</exception>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanAddNew">
+      <summary>Gets a value that indicates whether a new item can be added to the collection.</summary>
+      <returns>true if a new item can be added to the collection; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanCancelEdit">
+      <summary>Gets a value that indicates whether the collection view can discard pending changes and restore the original values of an edited object.</summary>
+      <returns>true if the collection view can discard pending changes and restore the original values of an edited object; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.CancelEdit">
+      <summary>Ends the edit transaction and, if it is possible, restores the original value of the item.</summary>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.CanCancelEdit" /> is false.-or-<see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.CancelNew">
+      <summary>Ends the add transaction and discards the pending new item.</summary>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.</exception>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanChangePage">
+      <summary>Gets a value that indicates whether the <see cref="P:System.Windows.Data.PagedCollectionView.PageIndex" /> value can change.</summary>
+      <returns>true in all cases.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanFilter">
+      <summary>Gets a value that indicates whether this view supports filtering by way of the <see cref="P:System.Windows.Data.PagedCollectionView.Filter" /> property.</summary>
+      <returns>true in all cases.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanGroup">
+      <summary>Gets a value that indicates whether this view supports grouping. </summary>
+      <returns>true in all cases.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanRemove">
+      <summary>Gets a value that indicates whether an item can be removed from the collection.</summary>
+      <returns>true if an item can be removed from the collection; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CanSort">
+      <summary>Gets a value that indicates whether this view supports sorting.</summary>
+      <returns>true in all cases.</returns>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.CollectionChanged">
+      <summary>Occurs when the view has changed.</summary>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.CommitEdit">
+      <summary>Ends the edit transaction and saves the pending changes.</summary>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.CommitNew">
+      <summary>Ends the add transaction and saves the pending new item.</summary>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.Contains(System.Object)">
+      <summary>Returns a value that indicates whether the specified item belongs to this collection view.</summary>
+      <returns>true if the specified item belongs to this collection view; otherwise, false.</returns>
+      <param name="item">The object to check.</param>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.Count">
+      <summary>Gets the number of records in the view after filtering, sorting, and paging.</summary>
+      <returns>The number of records in the view after filtering, sorting, and paging.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.Culture">
+      <summary>Gets or sets the cultural information for any operations of the view that might differ by culture, such as sorting.</summary>
+      <returns>The culture to use during view operations.</returns>
+      <exception cref="T:System.ArgumentNullException">The culture information is null.</exception>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CurrentAddItem">
+      <summary>Gets the item that is being added when an <see cref="M:System.Windows.Data.PagedCollectionView.AddNew" /> transaction is in progress.</summary>
+      <returns>The item that is being added if <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true; otherwise, null.</returns>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.CurrentChanged">
+      <summary>Occurs after the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> has changed.</summary>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.CurrentChanging">
+      <summary>Occurs when the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is changing.</summary>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CurrentEditItem">
+      <summary>Gets the item in the collection that is being edited when an <see cref="M:System.Windows.Data.PagedCollectionView.EditItem(System.Object)" /> transaction is in progress.</summary>
+      <returns>The item that is being edited if <see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true; otherwise, null.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CurrentItem">
+      <summary>Gets the current item in the view.</summary>
+      <returns>The current item in the view or null if there is no current item.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.CurrentPosition">
+      <summary>Gets the ordinal position of the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view, which might be sorted and filtered.</summary>
+      <returns>The ordinal position of the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.DeferRefresh">
+      <summary>Enters a defer cycle that you can use to merge changes to the view and delay automatic refresh.</summary>
+      <returns>An <see cref="T:System.IDisposable" /> object that you can use to dispose of the calling object.</returns>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.-or-<see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.EditItem(System.Object)">
+      <summary>Begins an edit transaction on the specified item.</summary>
+      <param name="item">The item to edit.</param>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.Filter">
+      <summary>Gets or sets a callback that is used to determine whether an item is suited for inclusion in the view.</summary>
+      <returns>A method that is used to determine whether an item is suited for inclusion in the view.</returns>
+      <exception cref="T:System.NotSupportedException">The implementation does not support filtering.Simpler implementations do not support filtering and will throw a <see cref="T:System.NotSupportedException" />. Check the <see cref="P:System.Windows.Data.PagedCollectionView.CanFilter" /> property to test whether filtering is supported before assigning a non-null value.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.-or-<see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.GetEnumerator">
+      <summary>Returns an <see cref="T:System.Collections.IEnumerator" /> object that you can use to enumerate the items in the view.</summary>
+      <returns>An <see cref="T:System.Collections.IEnumerator" /> object that you can use to enumerate the items in the view.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.GetItemAt(System.Int32)">
+      <summary>Gets the item at the specified zero-based index in this <see cref="T:System.Windows.Data.PagedCollectionView" />, after the source collection is filtered, sorted, and paged.</summary>
+      <returns>The item at the specified zero-based index.</returns>
+      <param name="index">The zero-based index of the item to retrieve.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" /> is less than 0, or greater than or equal to the <see cref="P:System.Windows.Data.PagedCollectionView.Count" /> of items in the view.</exception>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.GroupDescriptions">
+      <summary>Gets a collection of <see cref="T:System.ComponentModel.GroupDescription" /> objects that describe how the items in the collection are grouped in the view.</summary>
+      <returns>A collection of <see cref="T:System.ComponentModel.GroupDescription" /> objects that describe how the items in the collection are grouped in the view.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.Groups">
+      <summary>Gets the top-level groups, constructed according to the descriptions specified in the <see cref="P:System.Windows.Data.PagedCollectionView.GroupDescriptions" /> property.</summary>
+      <returns>A read-only collection of the top-level groups or null if there are no groups.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.IndexOf(System.Object)">
+      <summary>Returns the zero-based index at which the specified item is located.</summary>
+      <returns>The index at which the specified item is located, or –1 if the item is unknown.</returns>
+      <param name="item">The item to locate.</param>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsAddingNew">
+      <summary>Gets a value that indicates whether an <see cref="M:System.Windows.Data.PagedCollectionView.AddNew" /> transaction is in progress.</summary>
+      <returns>true if an <see cref="M:System.Windows.Data.PagedCollectionView.AddNew" /> transaction is in progress; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsCurrentAfterLast">
+      <summary>Gets a value that indicates whether the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> of the view is beyond the end of the collection.</summary>
+      <returns>true if the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> of the view is beyond the end of the collection; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsCurrentBeforeFirst">
+      <summary>Gets a value that indicates whether the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> of the view is before the start of the collection.</summary>
+      <returns>true if the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> of the view is before the start of the collection; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsEditingItem">
+      <summary>Gets a value that indicates whether an <see cref="M:System.Windows.Data.PagedCollectionView.EditItem(System.Object)" /> transaction is in progress.</summary>
+      <returns>true if an <see cref="M:System.Windows.Data.PagedCollectionView.EditItem(System.Object)" /> transaction is in progress; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsEmpty">
+      <summary>Gets a value that indicates whether the view is empty.</summary>
+      <returns>true if the view is empty; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.IsPageChanging">
+      <summary>Gets a value that indicates whether the page index is changing.</summary>
+      <returns>true if the page index is changing; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.Item(System.Int32)">
+      <summary>Gets the item at the specified index.</summary>
+      <returns>The item at the specified index.</returns>
+      <param name="index">The index of the item to be retrieved.</param>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.ItemCount">
+      <summary>Gets the minimum number of items known to be in the source collection that satisfy the current filter.</summary>
+      <returns>The minimum number of items known to be in the collection that satisfy the current filter.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentTo(System.Object)">
+      <summary>Sets the specified item to be the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+      <param name="item">The item to set as the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" />.</param>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentToFirst">
+      <summary>Sets the first item in the view as the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" />.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentToLast">
+      <summary>Sets the last item in the view as the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" />.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentToNext">
+      <summary>Set the item after the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view as the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" />.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentToPosition(System.Int32)">
+      <summary>Sets the item at the specified index to be the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+      <param name="position">The index to set the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> to.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="position" /> is less than -1 or greater than the <see cref="P:System.Windows.Data.PagedCollectionView.Count" /> of items in the view.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveCurrentToPrevious">
+      <summary>Sets the item before the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> in the view as the <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" />.</summary>
+      <returns>true if the resulting <see cref="P:System.Windows.Data.PagedCollectionView.CurrentItem" /> is an item in the view; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveToFirstPage">
+      <summary>Sets the first page as the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveToLastPage">
+      <summary>Sets the last page as the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveToNextPage">
+      <summary>Moves to the page after the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveToPage(System.Int32)">
+      <summary>Moves to the page at the specified index.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+      <param name="pageIndex">The index of the page to move to.</param>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.MoveToPreviousPage">
+      <summary>Moves to the page before the current page.</summary>
+      <returns>true if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.NeedsRefresh">
+      <summary>Gets a value that indicates whether this view needs to be refreshed.</summary>
+      <returns>true if the view needs to be refreshed; otherwise, false.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.NewItemPlaceholderPosition">
+      <summary>Gets or sets a value that indicates whether to include a new item placeholder in the collection view, and where to include it.</summary>
+      <returns>This implementation always returns <see cref="F:System.ComponentModel.NewItemPlaceholderPosition.None" />.</returns>
+      <exception cref="T:System.ArgumentException">The value is not <see cref="F:System.ComponentModel.NewItemPlaceholderPosition.None" />.</exception>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.PageChanged">
+      <summary>Occurs after the <see cref="P:System.Windows.Data.PagedCollectionView.PageIndex" /> has changed.</summary>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.PageChanging">
+      <summary>Occurs when the <see cref="P:System.Windows.Data.PagedCollectionView.PageIndex" /> is changing.</summary>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.PageIndex">
+      <summary>Gets the zero-based index of the current page.</summary>
+      <returns>The zero-based index of the current page.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.PageSize">
+      <summary>Gets or sets the number of items to display on a page.</summary>
+      <returns>The number of items to display on a page.</returns>
+      <exception cref="T:System.ArgumentOutOfRangeException">The page size is less than 0.</exception>
+      <exception cref="T:System.InvalidOperationException">The page size could not be changed because there is a new or edited item that could not be committed.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.PassesFilter(System.Object)">
+      <summary>Returns a value that indicates whether the specified item in the underlying collection belongs to the view after filters are applied.</summary>
+      <returns>true if the specified item belongs to the filtered view or if no filter is set on the collection view; otherwise, false.</returns>
+      <param name="item">The item to check.</param>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.PropertyChanged">
+      <summary>Occurs after a property value has changed.</summary>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.Refresh">
+      <summary>Re-creates the view.</summary>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.-or- <see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.</exception>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.Remove(System.Object)">
+      <summary>Removes the specified item from the collection.</summary>
+      <param name="item">The item to remove.</param>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.RemoveAt(System.Int32)">
+      <summary>Removes the item at the specified position from the collection.</summary>
+      <param name="index">The zero-based index of the item to remove.</param>
+      <exception cref="T:System.ArgumentOutOfRangeException">
+        <paramref name="index" /> is less than 0, or greater than or equal to the <see cref="P:System.Windows.Data.PagedCollectionView.Count" /> of items in the view.</exception>
+      <exception cref="T:System.InvalidOperationException">
+        <see cref="P:System.Windows.Data.PagedCollectionView.IsAddingNew" /> is true.-or- <see cref="P:System.Windows.Data.PagedCollectionView.IsEditingItem" /> is true.-or-<see cref="P:System.Windows.Data.PagedCollectionView.CanRemove" /> is false.</exception>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.SortDescriptions">
+      <summary>Gets a collection of <see cref="T:System.ComponentModel.SortDescription" /> objects that describe how the items in the collection are sorted in the view.</summary>
+      <returns>A collection of <see cref="T:System.ComponentModel.SortDescription" /> objects that describe how the items in the collection are sorted in the view.</returns>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.SourceCollection">
+      <summary>Gets the <see cref="T:System.Collections.IEnumerable" /> collection underlying this view.</summary>
+      <returns>The <see cref="T:System.Collections.IEnumerable" /> collection underlying this view.</returns>
+    </member>
+    <member name="M:System.Windows.Data.PagedCollectionView.System#Collections#IEnumerable#GetEnumerator">
+      <summary>Returns an enumerator that iterates through a collection.</summary>
+      <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.System#Collections#Specialized#INotifyCollectionChanged#CollectionChanged">
+      <summary>Occurs when the items list of the collection has changed, or the collection is reset.</summary>
+    </member>
+    <member name="E:System.Windows.Data.PagedCollectionView.System#ComponentModel#INotifyPropertyChanged#PropertyChanged">
+      <summary>Occurs when a property value changes.</summary>
+    </member>
+    <member name="P:System.Windows.Data.PagedCollectionView.TotalItemCount">
+      <summary>Gets the total number of items in the view before paging is applied.</summary>
+      <returns>The total number of items in the view before paging is applied.</returns>
+    </member>
+  </members>
+</doc>

@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>System.Windows.Controls.Data.Input</name>
+  </assembly>
+  <members>
+    <member name="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer">
+      <summary>Exposes <see cref="T:System.Windows.Controls.DescriptionViewer" /> types to UI automation. </summary>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer.#ctor(System.Windows.Controls.DescriptionViewer)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" /> class. </summary>
+      <param name="owner">The <see cref="T:System.Windows.Controls.DescriptionViewer" /> to associate with this <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" />.</param>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer.GetAutomationControlTypeCore">
+      <summary>Gets the control type for the element associated with this <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" />. This method is called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetAutomationControlType" />.</summary>
+      <returns>The control type as a value of the enumeration.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer.GetClassNameCore">
+      <summary>Gets the name of the class that is associated with this <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" />. This method is called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetClassName" />.</summary>
+      <returns>The class name.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer.GetNameCore">
+      <summary>Gets the UI Automation Name of the element that is associated with this <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" />. Called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetName" />.</summary>
+      <returns>The UI Automation Name from the owner control. </returns>
+    </member>
+    <member name="T:System.Windows.Automation.Peers.LabelAutomationPeer">
+      <summary>Exposes <see cref="T:System.Windows.Controls.Label" /> types to UI automation.</summary>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.LabelAutomationPeer.#ctor(System.Windows.Controls.Label)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" /> class.</summary>
+      <param name="owner">The <see cref="T:System.Windows.Controls.Label" /> to associate with the <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" />.</param>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.LabelAutomationPeer.GetAutomationControlTypeCore">
+      <summary>Gets the control type for the element that is associated with this <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" />. This method is called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetAutomationControlType" />.</summary>
+      <returns>A value of the enumeration.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.LabelAutomationPeer.GetClassNameCore">
+      <summary>Gets the name of the class associated with this <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" />. This method is called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetClassName" />.</summary>
+      <returns>The class name.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.LabelAutomationPeer.GetNameCore">
+      <summary>Gets the UI Automation Name of the element that is associated with this <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" />. Called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetName" />.</summary>
+      <returns>The UI Automation Nameof the element that is associated with this automation peer.</returns>
+    </member>
+    <member name="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer">
+      <summary>Exposes <see cref="T:System.Windows.Controls.ValidationSummary" /> types to UI automation.</summary>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.#ctor(System.Windows.Controls.ValidationSummary)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" /> class. </summary>
+      <param name="owner">The <see cref="T:System.Windows.Controls.ValidationSummary" /> to associate with this <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" />.</param>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.GetAutomationControlTypeCore">
+      <summary>Gets the <see cref="T:System.Windows.Automation.Peers.AutomationControlType" /> for the element associated with this <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" />. Called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetAutomationControlType" />.</summary>
+      <returns>A value of the enumeration.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.GetClassNameCore">
+      <summary>Gets the name of the class associated with this <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" />. Called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetClassName" />.</summary>
+      <returns>The class name.</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.GetNameCore">
+      <summary>Gets the UI Automation Name of the <see cref="T:System.Windows.Controls.ValidationSummary" /> that is associated with this <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" />. Called by <see cref="M:System.Windows.Automation.Peers.AutomationPeer.GetName" />.</summary>
+      <returns>The UI Automation Name</returns>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.GetPattern(System.Windows.Automation.Peers.PatternInterface)">
+      <summary>Gets an object that supports the requested pattern, based on the patterns supported by this <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" />.</summary>
+      <returns>The object that implements the pattern interface, or null if the specified pattern interface is not implemented by this peer.</returns>
+      <param name="patternInterface">One of the enumeration values.</param>
+    </member>
+    <member name="M:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer.System#Windows#Automation#Provider#IInvokeProvider#Invoke">
+      <summary>For a description of this member, see <see cref="M:System.Windows.Automation.Provider.IInvokeProvider.Invoke" />.</summary>
+    </member>
+    <member name="T:System.Windows.Controls.DescriptionViewer">
+      <summary>Displays a description and tracks error state for an associated control.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.DescriptionViewer.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.DescriptionViewer" /> class.</summary>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.Description">
+      <summary>Gets or sets the description text displayed by the viewer.</summary>
+      <returns>The description text displayed by the viewer.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.DescriptionProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.Description" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.Description" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.GlyphTemplate">
+      <summary>Gets or sets the template that is used to display the description viewer glyph.</summary>
+      <returns>The template that is used to display the description viewer glyph.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.GlyphTemplateProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.GlyphTemplate" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.GlyphTemplate" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.IsFocused">
+      <summary>Gets a value that indicates whether the control that is the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> of the <see cref="T:System.Windows.Controls.DescriptionViewer" /> has focus.</summary>
+      <returns>true if the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> control has focus; otherwise, false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.IsFocusedProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.IsFocused" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.IsFocused" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.IsValid">
+      <summary>Gets a value that indicates whether the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> field data is valid.</summary>
+      <returns>true if the field data is valid; otherwise, false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.IsValidProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.IsValid" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.IsValid" /> dependency property.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.DescriptionViewer.OnApplyTemplate">
+      <summary>Builds the visual tree for the <see cref="T:System.Windows.Controls.DescriptionViewer" /> control when a new template is applied.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.DescriptionViewer.OnCreateAutomationPeer">
+      <summary>Returns a <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" /> for use by the Silverlight automation infrastructure.</summary>
+      <returns>A <see cref="T:System.Windows.Automation.Peers.DescriptionViewerAutomationPeer" /> for the <see cref="T:System.Windows.Controls.DescriptionViewer" /> object.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.PropertyPath">
+      <summary>Gets or sets the path to the dependency property on the <see cref="P:System.Windows.FrameworkElement.DataContext" /> of the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> control that this <see cref="T:System.Windows.Controls.DescriptionViewer" /> is associated with.</summary>
+      <returns>The path to the dependency property on the <see cref="P:System.Windows.FrameworkElement.DataContext" /> of the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> control that this <see cref="T:System.Windows.Controls.DescriptionViewer" /> is associated with.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.PropertyPathProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.PropertyPath" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.PropertyPath" /> dependency property.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.DescriptionViewer.Refresh">
+      <summary>Reloads the metadata from the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> element.</summary>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.Target">
+      <summary>Gets or sets the control that this <see cref="T:System.Windows.Controls.DescriptionViewer" /> is associated with.</summary>
+      <returns>The control that this <see cref="T:System.Windows.Controls.DescriptionViewer" /> is associated with.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.TargetProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.Target" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.DescriptionViewer.ToolTipStyle">
+      <summary>Gets or sets the style used to display tooltips.</summary>
+      <returns>The style used to display tooltips.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.DescriptionViewer.ToolTipStyleProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.DescriptionViewer.ToolTipStyle" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.DescriptionViewer.ToolTipStyle" /> dependency property.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.FocusingInvalidControlEventArgs">
+      <summary>Provides data for the <see cref="E:System.Windows.Controls.ValidationSummary.FocusingInvalidControl" /> event.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.FocusingInvalidControlEventArgs.#ctor(System.Windows.Controls.ValidationSummaryItem,System.Windows.Controls.ValidationSummaryItemSource)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.FocusingInvalidControlEventArgs" /> class.</summary>
+      <param name="item">The error that is selected in the <see cref="T:System.Windows.Controls.ValidationSummary" /> list.</param>
+      <param name="target">The control/property pair that will receive focus.</param>
+    </member>
+    <member name="P:System.Windows.Controls.FocusingInvalidControlEventArgs.Handled">
+      <summary>Gets or sets a value that indicates whether setting the focus was handled.</summary>
+      <returns>true if setting the focus was handled; otherwise, false. The default is false.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.FocusingInvalidControlEventArgs.Item">
+      <summary>Gets the error that is selected in the <see cref="T:System.Windows.Controls.ValidationSummary" /> error list.</summary>
+      <returns>The error that is selected in the <see cref="T:System.Windows.Controls.ValidationSummary" /> error list.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.FocusingInvalidControlEventArgs.Target">
+      <summary>Gets or sets the control/property pair that will receive focus.</summary>
+      <returns>The control/property pair that will receive focus.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.Label">
+      <summary>Displays a caption, required field indicator, and validation error indicator for an associated control.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.Label.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.Label" /> class. </summary>
+    </member>
+    <member name="P:System.Windows.Controls.Label.IsRequired">
+      <summary>Gets or sets a value that indicates whether the property bound to the <see cref="P:System.Windows.Controls.Label.Target" /> field is required.</summary>
+      <returns>true if the field is required; otherwise, false. The default is false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.Label.IsRequiredProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.Label.IsRequired" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.Label.IsRequired" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.Label.IsValid">
+      <summary>Gets a value that indicates whether the <see cref="P:System.Windows.Controls.Label.Target" /> field data is valid.</summary>
+      <returns>true if the field data is valid; otherwise, false. The default is true.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.Label.IsValidProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.Label.IsValid" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.Label.IsValid" /> dependency property.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.Label.OnApplyTemplate">
+      <summary>Builds the visual tree for the <see cref="T:System.Windows.Controls.Label" /> control when a new template is applied.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.Label.OnContentChanged(System.Object,System.Object)">
+      <summary>Called when the value of the <see cref="P:System.Windows.Controls.ContentControl.Content" /> property changes.</summary>
+      <param name="oldContent">The old value of the <see cref="P:System.Windows.Controls.ContentControl.Content" /> property.</param>
+      <param name="newContent">The new value of the <see cref="P:System.Windows.Controls.ContentControl.Content" /> property.</param>
+    </member>
+    <member name="M:System.Windows.Controls.Label.OnCreateAutomationPeer">
+      <summary>Returns a <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" /> for use by the Silverlight automation infrastructure.</summary>
+      <returns>A <see cref="T:System.Windows.Automation.Peers.LabelAutomationPeer" /> for the <see cref="T:System.Windows.Controls.Label" /> object.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.Label.PropertyPath">
+      <summary>Gets or sets the path to the dependency property on the <see cref="P:System.Windows.FrameworkElement.DataContext" /> of the <see cref="P:System.Windows.Controls.Label.Target" /> control that this <see cref="T:System.Windows.Controls.Label" /> is associated with.</summary>
+      <returns>The path to the dependency property on the <see cref="P:System.Windows.FrameworkElement.DataContext" /> of the <see cref="P:System.Windows.Controls.Label.Target" /> control that this <see cref="T:System.Windows.Controls.Label" /> is associated with. The default is null.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.Label.PropertyPathProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.Label.PropertyPath" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.Label.PropertyPath" /> dependency property.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.Label.Refresh">
+      <summary>Reloads the metadata from the <see cref="P:System.Windows.Controls.Label.Target" /> element.</summary>
+    </member>
+    <member name="P:System.Windows.Controls.Label.Target">
+      <summary>Gets or sets the control that this <see cref="T:System.Windows.Controls.Label" /> is associated with.</summary>
+      <returns>The control that this <see cref="T:System.Windows.Controls.Label" /> is associated with.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.Label.TargetProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.Label.Target" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.Label.Target" /> dependency property.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.ValidationSummary">
+      <summary>Displays a summary of the validation errors on a form.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummary" /> class.</summary>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.DisplayedErrors">
+      <summary>Gets the collection of errors that are displayed after the <see cref="P:System.Windows.Controls.ValidationSummary.Filter" /> is applied.</summary>
+      <returns>The collection of errors that are displayed after the <see cref="P:System.Windows.Controls.ValidationSummary.Filter" /> is applied.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.Errors">
+      <summary>Gets the collection of errors.</summary>
+      <returns>The collection of errors.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.ErrorStyle">
+      <summary>Gets or sets the style used for the error's item container.</summary>
+      <returns>The style used for the error's item container.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.ErrorStyleProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.ErrorStyle" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.ErrorStyle" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.Filter">
+      <summary>Gets or sets a value that indicates which types of errors are displayed.</summary>
+      <returns>One of the enumeration values that indicates which types of errors are displayed. The default is <see cref="F:System.Windows.Controls.ValidationSummaryFilters.All" />.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.FilterProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.Filter" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.Filter" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.FocusControlsOnClick">
+      <summary>Gets or sets a value that indicates whether focus is set on the input control when an error message is clicked.</summary>
+      <returns>true if focus is set on the input control when an error message is clicked; otherwise, false. The default is true.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.FocusControlsOnClickProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.FocusControlsOnClick" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.FocusControlsOnClick" /> dependency property.</returns>
+    </member>
+    <member name="E:System.Windows.Controls.ValidationSummary.FocusingInvalidControl">
+      <summary>Occurs when an error in the error summary list is clicked.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.GetShowErrorsInSummary(System.Windows.DependencyObject)">
+      <summary>Gets the value of the <see cref="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary" /> attached property of the specified <see cref="T:System.Windows.DependencyObject" />.</summary>
+      <returns>The <see cref="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary" /> property value of the specified object.</returns>
+      <param name="inputControl">The input control from which the property value is read.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="inputControl" /> is null.</exception>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.HasDisplayedErrors">
+      <summary>Gets a value that indicates whether the <see cref="T:System.Windows.Controls.ValidationSummary" /> has displayed errors.</summary>
+      <returns>true if the <see cref="T:System.Windows.Controls.ValidationSummary" /> has displayed errors; otherwise, false. The default is false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.HasDisplayedErrorsProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.HasDisplayedErrors" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.HasDisplayedErrors" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.HasErrors">
+      <summary>Gets a value that indicates whether the <see cref="T:System.Windows.Controls.ValidationSummary" /> has errors.</summary>
+      <returns>true if the <see cref="T:System.Windows.Controls.ValidationSummary" /> has errors; otherwise, false. The default is false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.HasErrorsProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.HasErrors" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.HasErrors" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.Header">
+      <summary>Gets or sets the content of the <see cref="T:System.Windows.Controls.ValidationSummary" /> header.</summary>
+      <returns>The content of the <see cref="T:System.Windows.Controls.ValidationSummary" /> header. The default is null.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.HeaderProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.Header" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.Header" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.HeaderTemplate">
+      <summary>Gets or sets the template that is used to display the content of the header.</summary>
+      <returns>The template that is used to display the content of the header.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.HeaderTemplateProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.HeaderTemplate" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.HeaderTemplate" /> dependency property.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.OnApplyTemplate">
+      <summary>Builds the visual tree for the <see cref="T:System.Windows.Controls.ValidationSummary" /> when a new template is applied.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.OnCreateAutomationPeer">
+      <summary>Returns a <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" /> for use by the Silverlight automation infrastructure.</summary>
+      <returns>A <see cref="T:System.Windows.Automation.Peers.ValidationSummaryAutomationPeer" /> for the <see cref="T:System.Windows.Controls.ValidationSummary" /> object.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.OnFocusingInvalidControl(System.Windows.Controls.FocusingInvalidControlEventArgs)">
+      <summary>Raises the <see cref="E:System.Windows.Controls.ValidationSummary.FocusingInvalidControl" /> event.</summary>
+      <param name="e">The event data.</param>
+    </member>
+    <member name="E:System.Windows.Controls.ValidationSummary.SelectionChanged">
+      <summary>Occurs when the currently selected item in the error summary list changes.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummary.SetShowErrorsInSummary(System.Windows.DependencyObject,System.Boolean)">
+      <summary>Sets the value of the <see cref="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary" /> attached property of the specified <see cref="T:System.Windows.DependencyObject" />.</summary>
+      <param name="inputControl">The input control with which to associate the attached property.</param>
+      <param name="value">true if errors on the input control should be shown in the summary; otherwise, false.</param>
+      <exception cref="T:System.ArgumentNullException">
+        <paramref name="inputControl" /> is null.</exception>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary">
+      <summary>Gets or sets a value that indicates whether a control's errors should be displayed in the <see cref="T:System.Windows.Controls.ValidationSummary" />.</summary>
+      <returns>true if errors on the input control should be shown in the summary; otherwise, false.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.ShowErrorsInSummaryProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary" /> attached property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.ShowErrorsInSummary" /> attached property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.SummaryListBoxStyle">
+      <summary>Gets or sets the style applied to the <see cref="T:System.Windows.Controls.ListBox" /> that displays the errors.</summary>
+      <returns>The style applied to the <see cref="T:System.Windows.Controls.ListBox" /> that displays the errors. The default is null.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.SummaryListBoxStyleProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.SummaryListBoxStyle" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.SummaryListBoxStyle" /> dependency property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummary.Target">
+      <summary>Gets or sets the <see cref="T:System.Windows.UIElement" /> for which validation errors will be displayed in the summary.</summary>
+      <returns>The <see cref="T:System.Windows.UIElement" /> for which validation errors will be displayed in the summary. The default is null.</returns>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummary.TargetProperty">
+      <summary>Identifies the <see cref="P:System.Windows.Controls.ValidationSummary.Target" /> dependency property.</summary>
+      <returns>The identifier for the <see cref="P:System.Windows.Controls.ValidationSummary.Target" /> dependency property.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.ValidationSummaryFilters">
+      <summary>Specifies the types of errors displayed in an <see cref="T:System.Windows.Controls.ValidationSummary" /> control.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryFilters.None">
+      <summary>No errors are displayed.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryFilters.ObjectErrors">
+      <summary>Only object level errors are displayed.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryFilters.PropertyErrors">
+      <summary>Only property level errors are displayed.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryFilters.All">
+      <summary>All errors are displayed. </summary>
+    </member>
+    <member name="T:System.Windows.Controls.ValidationSummaryItem">
+      <summary>Represents an individual validation error.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItem.#ctor">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummaryItem" /> class.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItem.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummaryItem" /> class with the specified error message.</summary>
+      <param name="message">The text of the error message.</param>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItem.#ctor(System.String,System.String,System.Windows.Controls.ValidationSummaryItemType,System.Windows.Controls.ValidationSummaryItemSource,System.Object)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummaryItem" /> class with the specified error message, header, item type, source, and context.</summary>
+      <param name="message">The text of the error message.</param>
+      <param name="messageHeader">The header of the item, such as the property name.</param>
+      <param name="itemType">Specifies whether the error originated from an object or a property.</param>
+      <param name="source">The source of the error message, including the originating control or property name.</param>
+      <param name="context">The context in which the error occurred.</param>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItem.Context">
+      <summary>Gets or sets the object that is the context in which the error occurred.</summary>
+      <returns>The object that is the context in which the error occurred, or null if no value is set.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItem.ItemType">
+      <summary>Gets a value that specifies whether the error originated from an object or a property.</summary>
+      <returns>One of the enumeration values that specifies whether the error originated from an object or a property.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItem.Message">
+      <summary>Gets or sets the text of the error message.</summary>
+      <returns>The text of the error message.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItem.MessageHeader">
+      <summary>Gets or sets the text of the error message header.</summary>
+      <returns>The text of the error message header.</returns>
+    </member>
+    <member name="E:System.Windows.Controls.ValidationSummaryItem.PropertyChanged">
+      <summary>Occurs when a property value for this <see cref="T:System.Windows.Controls.ValidationSummaryItem" /> changes.</summary>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItem.Sources">
+      <summary>Gets the sources of the validation errors.</summary>
+      <returns>A collection of <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> objects that represent the sources of validation errors.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItem.ToString">
+      <summary>The string representation of this <see cref="T:System.Windows.Controls.ValidationSummaryItem" />.</summary>
+      <returns>The string representation of this <see cref="T:System.Windows.Controls.ValidationSummaryItem" />.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.ValidationSummaryItemSource">
+      <summary>Represents the source of a <see cref="T:System.Windows.Controls.ValidationSummaryItem" />.</summary>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItemSource.#ctor(System.String)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> class with the specified property associated with this error.</summary>
+      <param name="propertyName">The name of the property associated with this error.</param>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItemSource.#ctor(System.String,System.Windows.Controls.Control)">
+      <summary>Initializes a new instance of the <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> class with the specified property and control associated with this error.</summary>
+      <param name="propertyName">The name of the property associated with this error.</param>
+      <param name="control">The control associated with this error.</param>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItemSource.Control">
+      <summary>Gets the control that is the source of this error.</summary>
+      <returns>The control that is the source of this error.</returns>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItemSource.Equals(System.Object)">
+      <summary>Determines whether the specified <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> is equal to the current <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" />.</summary>
+      <returns>true if the specified <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> is equal to the current <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" />; otherwise, false.</returns>
+      <param name="obj">The <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" /> to compare to the current <see cref="T:System.Windows.Controls.ValidationSummaryItemSource" />.</param>
+    </member>
+    <member name="M:System.Windows.Controls.ValidationSummaryItemSource.GetHashCode">
+      <summary>Returns a hash code based on the <see cref="P:System.Windows.Controls.ValidationSummaryItemSource.PropertyName" /> and the <see cref="P:System.Windows.Controls.ValidationSummaryItemSource.Control" /><see cref="P:System.Windows.FrameworkElement.Name" />.</summary>
+      <returns>The hash code for this instance.</returns>
+    </member>
+    <member name="P:System.Windows.Controls.ValidationSummaryItemSource.PropertyName">
+      <summary>Gets the name of the property that is the source of this error.</summary>
+      <returns>The name of the property that is the source of this error.</returns>
+    </member>
+    <member name="T:System.Windows.Controls.ValidationSummaryItemType">
+      <summary>Specifies whether a validation error came from object-level or property-level validation.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryItemType.ObjectError">
+      <summary>The error came from object-level validation.</summary>
+    </member>
+    <member name="F:System.Windows.Controls.ValidationSummaryItemType.PropertyError">
+      <summary>The error came from property-level validation.</summary>
+    </member>
+  </members>
+</doc>

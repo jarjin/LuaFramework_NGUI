@@ -1,0 +1,38 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SuperSocket.ServerManager.Client" EntryPointType="SuperSocket.ServerManager.Client.App" RuntimeVersion="5.0.61118.0">
+  <Deployment.InBrowserSettings>
+    <InBrowserSettings>
+      <InBrowserSettings.SecuritySettings>
+        <SecuritySettings ElevatedPermissions="NotRequired" />
+      </InBrowserSettings.SecuritySettings>
+    </InBrowserSettings>
+  </Deployment.InBrowserSettings>
+  <Deployment.OutOfBrowserSettings>
+    <OutOfBrowserSettings ShortName="SuperSocket ServerManager Client" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+      <OutOfBrowserSettings.Blurb>SuperSocket ServerManager Client on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
+      <OutOfBrowserSettings.WindowSettings>
+        <WindowSettings Title="SuperSocket ServerManager ClientAgent" />
+      </OutOfBrowserSettings.WindowSettings>
+      <OutOfBrowserSettings.Icons>
+        <Icon Size="32,32">Resources/SS(32).png</Icon>
+        <Icon Size="48,48">Resources/SS(48).png</Icon>
+      </OutOfBrowserSettings.Icons>
+    </OutOfBrowserSettings>
+  </Deployment.OutOfBrowserSettings>
+  <Deployment.Parts>
+    <AssemblyPart x:Name="SuperSocket.ServerManager.Client" Source="SuperSocket.ServerManager.Client.dll" />
+    <AssemblyPart x:Name="DynamicViewModel.SL" Source="DynamicViewModel.SL.dll" />
+    <AssemblyPart x:Name="Microsoft.CSharp" Source="Microsoft.CSharp.dll" />
+    <AssemblyPart x:Name="Microsoft.Expression.Interactions" Source="Microsoft.Expression.Interactions.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data" Source="System.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input.Toolkit" Source="System.Windows.Controls.Input.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
+    <AssemblyPart x:Name="WebSocket4Net" Source="WebSocket4Net.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.Input" Source="System.Windows.Controls.Data.Input.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.DataAnnotations" Source="System.ComponentModel.DataAnnotations.dll" />
+    <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit" Source="System.Windows.Controls.Toolkit.dll" />
+  </Deployment.Parts>
+</Deployment>
