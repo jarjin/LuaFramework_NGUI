@@ -12,4 +12,5 @@
 游戏案例地址 http://www.ulua.org/showcase.html
 框架详细介绍 http://doc.ulua.org/default.asp?cateID=4
 
-//-------------2016-01-09-------------
+//-------------2016-01-18-------------
+(1)基于tolua#提供的luabundle功能，框架直接无缝集成。

@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Object = UnityEngine.Object;
 using Debug = UnityEngine.Debug;
 using System.Threading;
+using LuaFramework;
 
 [InitializeOnLoad]
 public static class ToLuaMenu
@@ -600,12 +601,15 @@ public static class ToLuaMenu
 
     static void BuildLuaBundle(string dir)
     {
-        BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets | BuildAssetBundleOptions.DeterministicAssetBundle;
+        BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets | 
+                                          BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.UncompressedAssetBundle;
 
-        string[] files = Directory.GetFiles("Assets/StreamingAssets/Lua/" + dir, "*.lua.bytes");
+        string[] files = Directory.GetFiles("Assets/StreamingAssets/" + AppConst.LuaTempDir + dir, "*.lua.bytes");
         List<Object> list = new List<Object>();
-        string bundleName = dir == null ? "Lua.unity3d" : "Lua_" + dir + ".unity3d";
-
+        string bundleName = "Lua.unity3d";
+        if (dir != null) {
+            bundleName = "Lua_" + dir.Replace('\\', '_') + ".unity3d";
+        } 
         for (int i = 0; i < files.Length; i++)
         {
             Object obj = AssetDatabase.LoadMainAssetAtPath(files[i]);
@@ -614,11 +618,11 @@ public static class ToLuaMenu
 
         if (files.Length > 0)
         {            
-            string output = string.Format("{0}/{1}/" + bundleName, Application.streamingAssetsPath, GetOS());
-            File.Delete(output);
+            string output = Application.streamingAssetsPath + "/lua/" + bundleName;
+            if (File.Exists(output)) {
+                File.Delete(output);
+            }
             BuildPipeline.BuildAssetBundle(null, list.ToArray(), output, options, EditorUserBuildSettings.activeBuildTarget);
-            string output1 = string.Format("{0}/{1}/" + bundleName, Application.persistentDataPath, GetOS());
-            File.Copy(output, output1, true);
             AssetDatabase.Refresh();
         }
     }
@@ -677,7 +681,7 @@ public static class ToLuaMenu
         }
     }
 
-    [MenuItem("Lua/Build Lua files  (PC运行)", false, 5)]
+    [MenuItem("Lua/Build Lua files  (PC运行)", false, 105)]
     public static void BuildLua()
     {
         ClearAllLuaFiles();
@@ -700,7 +704,7 @@ public static class ToLuaMenu
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("Lua/Build Luajit bundle files   (PC运行)", false, 6)]
+    [MenuItem("Lua/Build Luajit bundle files   (PC运行)", false, 106)]
     public static void BuildLuaBundles()
     {
         ClearAllLuaFiles();
@@ -739,29 +743,29 @@ public static class ToLuaMenu
         AssetDatabase.Refresh();
     }
 
-    [MenuItem("Lua/Build bundle files not jit", false, 6)]
+    [MenuItem("Lua/Build bundle files not jit", false, 107)]
     public static void BuildNotJitBundles()
     {
         ClearAllLuaFiles();
-        CreateStreamDir(GetOS());
         CreateStreamDir("Lua/");
-        string dir = Application.persistentDataPath + "/" + GetOS();
+        CreateStreamDir(AppConst.LuaTempDir);
 
+        string dir = Application.persistentDataPath;
         if (!File.Exists(dir))
         {
             Directory.CreateDirectory(dir);
         }
 
-        string streamDir = Application.streamingAssetsPath + "/Lua";
+        string streamDir = Application.streamingAssetsPath + "/" + AppConst.LuaTempDir;
         CopyLuaBytesFiles(WrapFiles.luaDir, streamDir);
-        CopyLuaBytesFiles(Application.dataPath + "/ToLua/Lua", streamDir);
+        CopyLuaBytesFiles(WrapFiles.FrameworkPath + "/ToLua/Lua", streamDir);
 
         AssetDatabase.Refresh();
-        string[] dirs = Directory.GetDirectories(streamDir);
+        string[] dirs = Directory.GetDirectories(streamDir, "*", SearchOption.AllDirectories);
 
         for (int i = 0; i < dirs.Length; i++)
         {
-            string str = dirs[i].Remove(0, streamDir.Length + 1);
+            string str = dirs[i].Remove(0, streamDir.Length);
             BuildLuaBundle(str);
         }
 

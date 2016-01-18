@@ -4,19 +4,42 @@ using LuaInterface;
 
 namespace LuaFramework {
     public class LuaManager : Manager {
-        public LuaState lua;
+        private LuaState lua;
+        private LuaLoader loader;
 
         // Use this for initialization
         void Awake() {
+            loader = new LuaLoader();
             lua = new LuaState();
-            this.InitLuaPath();
             LuaBinder.Bind(lua);
+        }
+
+        public void InitStart() {
+            InitLuaPath();
+            InitLuaBundle();
+            this.lua.Start();    //启动LUAVM
         }
 
         void InitLuaPath() {
             string rootPath = AppConst.FrameworkRoot;
             lua.AddSearchPath(rootPath + "/Lua");
             lua.AddSearchPath(rootPath + "/ToLua/Lua");
+        }
+
+        /// <summary>
+        /// 初始化LuaBundle
+        /// </summary>
+        void InitLuaBundle() {
+            if (loader.beZip) {
+                loader.AddBundle("Lua/Lua.unity3d");
+                loader.AddBundle("Lua/Lua_math.unity3d");
+                loader.AddBundle("Lua/Lua_system.unity3d");
+                loader.AddBundle("Lua/Lua_u3d.unity3d");
+                loader.AddBundle("Lua/Lua_Common.unity3d");
+                loader.AddBundle("Lua/Lua_Logic.unity3d");
+                loader.AddBundle("Lua/Lua_View.unity3d");
+                loader.AddBundle("Lua/Lua_Controller.unity3d");            
+            }
         }
 
         public object[] DoFile(string filename) {
@@ -38,6 +61,7 @@ namespace LuaFramework {
 
         public void Close() {
             lua.Dispose();
+            loader = null;
         }
     }
 }

@@ -236,7 +236,7 @@ namespace LuaFramework {
         /// 资源初始化结束
         /// </summary>
         public void OnResourceInited() {
-            LuaManager.lua.Start();
+            LuaManager.InitStart();
             LuaManager.DoFile("Logic/Network");       //加载网络
             LuaManager.DoFile("Logic/GameManager");    //加载游戏
             initialize = true;                     //初始化完 

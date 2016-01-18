@@ -69,7 +69,7 @@
         public void OnGUI()
         {
             //GUI.DrawTexture(this.mWelcomeScreenImageRect, this.mWelcomeScreenImage);
-            GUI.Label(this.mWelcomeIntroRect, "欢迎使用LuaFramework，它是个基于uLua/CSTOLUA，\n将C#类注册进Lua，并且附带了AssetBundle管理的演示框架。入门步骤如下：");
+            GUI.Label(this.mWelcomeIntroRect, "欢迎使用LuaFramework，它是个基于tolua#，\n将C#类注册进Lua，并且附带了AssetBundle管理的演示框架。入门步骤如下：");
             GUI.DrawTexture(this.mSamplesImageRect, this.mSamplesImage);
             GUI.Label(this.mSamplesHeaderRect, "新手入门 - 生成Wrap文件(必须)" );
             GUI.Label(this.mSamplesDescriptionRect, "单击Lua菜单里面Gen Lua Wrap File子菜单.");

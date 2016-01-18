@@ -311,10 +311,8 @@ namespace LuaFramework {
                 if (Application.platform == RuntimePlatform.WindowsPlayer) {
                     return Application.streamingAssetsPath + "/";
                 }
-                if (AppConst.DebugMode) {
-                    if (Application.isEditor) {
-                        return Application.dataPath + "/StreamingAssets/";
-                    }
+                if (AppConst.DebugMode && Application.isEditor) {
+                    return Application.streamingAssetsPath + "/";
                 }
                 return "c:/" + game + "/";
             }
