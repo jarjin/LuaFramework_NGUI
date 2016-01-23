@@ -12,5 +12,8 @@
 游戏案例地址 http://www.ulua.org/showcase.html
 框架详细介绍 http://doc.ulua.org/default.asp?cateID=4
 
+//-------------2016-01-23-------------
+(1)完善了Lua的字节码模式AppConst.LuaByteMode、Lua的AssetBundle模式AppConst.LuaBundleMode的交叉使用。
+
 //-------------2016-01-18-------------
-(1)框架直接基于tolua#提供的luabundle功能，开关在AppConst.LuabundleMode。
+(1)框架直接基于tolua#提供的luabundle功能，开关在AppConst.LuaBundleMode。

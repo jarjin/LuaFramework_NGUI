@@ -604,11 +604,11 @@ public static class ToLuaMenu
         BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets | 
                                           BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.UncompressedAssetBundle;
 
-        string[] files = Directory.GetFiles("Assets/StreamingAssets/" + AppConst.LuaTempDir + dir, "*.lua.bytes");
+        string[] files = Directory.GetFiles("Assets/" + AppConst.LuaTempDir + dir, "*.lua.bytes");
         List<Object> list = new List<Object>();
         string bundleName = "Lua.unity3d";
         if (dir != null) {
-            bundleName = "Lua_" + dir.Replace('\\', '_') + ".unity3d";
+            bundleName = "Lua_" + dir.Replace('\\', '_') + AppConst.ExtName;
         } 
         for (int i = 0; i < files.Length; i++)
         {
@@ -756,7 +756,7 @@ public static class ToLuaMenu
             Directory.CreateDirectory(dir);
         }
 
-        string streamDir = Application.streamingAssetsPath + "/" + AppConst.LuaTempDir;
+        string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
         CopyLuaBytesFiles(WrapFiles.luaDir, streamDir);
         CopyLuaBytesFiles(WrapFiles.FrameworkPath + "/ToLua/Lua", streamDir);
 
@@ -796,7 +796,12 @@ public static class ToLuaMenu
             if (appendext) dest += ".bytes";
             string dir = Path.GetDirectoryName(dest);
             Directory.CreateDirectory(dir);
-            File.Copy(files[i], dest, true);
+
+            if (AppConst.LuaByteMode) {
+                Packager.EncodeLuaFile(files[i], dest, true);
+            } else {
+                File.Copy(files[i], dest, true);
+            }
         }        
     }
 

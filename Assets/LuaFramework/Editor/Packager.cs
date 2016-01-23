@@ -63,7 +63,7 @@ public class Packager {
         if (AppConst.ExampleMode) {
             HandleExampleBundle(target);
         }
-        if (AppConst.LuabundleMode) {
+        if (AppConst.LuaBundleMode) {
             ToLuaMenu.BuildNotJitBundles();
         } else {
             HandleLuaFile(isWin);
@@ -93,7 +93,7 @@ public class Packager {
         ///-----------------------------生成共享的关联性素材绑定-------------------------------------
         BuildPipeline.PushAssetDependencies();
 
-        assetfile = assetPath + "shared.assetbundle";
+        assetfile = assetPath + "shared" + AppConst.ExtName;
         mainAsset = LoadAsset("Shared/Atlas/Dialog.prefab");
         BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
 
@@ -102,14 +102,14 @@ public class Packager {
         mainAsset = LoadAsset("Prompt/Prefabs/PromptPanel.prefab");
         addis = new Object[1];
         addis[0] = LoadAsset("Prompt/Prefabs/PromptItem.prefab");
-        assetfile = assetPath + "prompt.assetbundle";
+        assetfile = assetPath + "prompt" + AppConst.ExtName;
         BuildPipeline.BuildAssetBundle(mainAsset, addis, assetfile, options, target);
         BuildPipeline.PopAssetDependencies();
 
         ///------------------------------生成MessagePanel素材绑定-----------------------------------
         BuildPipeline.PushAssetDependencies();
         mainAsset = LoadAsset("Message/Prefabs/MessagePanel.prefab");
-        assetfile = assetPath + "message.assetbundle";
+        assetfile = assetPath + "message" + AppConst.ExtName;
         BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
         BuildPipeline.PopAssetDependencies();
 
@@ -146,12 +146,12 @@ public class Packager {
                 if (File.Exists(newpath)) {
                     File.Delete(newpath);
                 }
-                if (AppConst.LuaEncode) {
-                    UpdateProgress(n++, files.Count, newpath);
+                if (AppConst.LuaByteMode) {
                     EncodeLuaFile(f, newpath, isWin);
                 } else {
                     File.Copy(f, newpath, true);
                 }
+                UpdateProgress(n++, files.Count, newpath);
             } 
         }
         EditorUtility.ClearProgressBar();
@@ -211,7 +211,7 @@ public class Packager {
         EditorUtility.DisplayProgressBar(title, desc, value);
     }
 
-    static void EncodeLuaFile(string srcFile, string outFile, bool isWin) {
+    public static void EncodeLuaFile(string srcFile, string outFile, bool isWin) {
         if (!srcFile.ToLower().EndsWith(".lua")) {
             File.Copy(srcFile, outFile, true);
             return;
@@ -234,7 +234,7 @@ public class Packager {
         info.FileName = luaexe;
         info.Arguments = args;
         info.WindowStyle = ProcessWindowStyle.Hidden;
-        info.UseShellExecute = isWin;
+        //info.UseShellExecute = isWin;
         info.ErrorDialog = true;
         Util.Log(info.FileName + " " + info.Arguments);
 
