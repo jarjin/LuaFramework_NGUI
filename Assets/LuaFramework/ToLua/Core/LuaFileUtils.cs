@@ -163,7 +163,13 @@ public class LuaFileUtils
         if (zipFile != null)
         {
 #if UNITY_5 
-            TextAsset luaCode = zipFile.LoadAsset<TextAsset>(fileName);
+            string[] names = zipFile.GetAllAssetNames();
+            for (int i = 0; i < names.Length; i++) {
+                if (names[i].EndsWith(fileName.ToLower() + ".bytes")) {
+                    fileName = names[i];
+                    break;
+                }
+            }
 #else
             TextAsset luaCode = zipFile.Load(fileName, typeof(TextAsset)) as TextAsset;
 #endif            
