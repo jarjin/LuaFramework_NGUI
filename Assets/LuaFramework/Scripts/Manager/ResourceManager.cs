@@ -15,7 +15,7 @@ namespace LuaFramework {
                 byte[] stream;
                 string uri = string.Empty;
                 //------------------------------------Shared--------------------------------------
-                uri = Util.DataPath + "shared.assetbundle";
+                uri = Util.DataPath + "shared" + AppConst.ExtName;
                 Debug.LogWarning("LoadFile::>> " + uri);
 
                 stream = File.ReadAllBytes(uri);
@@ -35,7 +35,7 @@ namespace LuaFramework {
         public AssetBundle LoadBundle(string name) {
             byte[] stream = null;
             AssetBundle bundle = null;
-            string uri = Util.DataPath + name.ToLower() + ".assetbundle";
+            string uri = Util.DataPath + name.ToLower() + AppConst.ExtName;
             stream = File.ReadAllBytes(uri);
             bundle = AssetBundle.CreateFromMemoryImmediate(stream); //关联数据的素材绑定
             return bundle;
