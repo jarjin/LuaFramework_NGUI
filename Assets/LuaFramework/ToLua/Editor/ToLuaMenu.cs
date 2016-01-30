@@ -893,7 +893,7 @@ public static class ToLuaMenu
             Directory.CreateDirectory(dir);
 
             if (AppConst.LuaByteMode) {
-                Packager.EncodeLuaFile(files[i], dest, true);
+                Packager.EncodeLuaFile(files[i], dest);
             } else {
                 File.Copy(files[i], dest, true);
             }
@@ -967,7 +967,7 @@ public static class ToLuaMenu
         }
     }
     
-    [MenuItem("Lua/Clear BaseType Wrap", false, 27)]
+    [MenuItem("Lua/Clear BaseType Wrap", false, 37)]
     static void ClearBaseTypeLuaWrap()
     {
         CreateDefaultWrapFile(WrapFiles.toluaBaseType, "System_ObjectWrap");

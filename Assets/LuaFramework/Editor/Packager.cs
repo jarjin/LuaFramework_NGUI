@@ -37,23 +37,23 @@ public class Packager {
 #else
         target = BuildTarget.iPhone;
 #endif
-        BuildAssetResource(target, false);
+        BuildAssetResource(target);
     }
 
     [MenuItem("LuaFramework/Build Android Resource", false, 101)]
     public static void BuildAndroidResource() {
-        BuildAssetResource(BuildTarget.Android, true);
+        BuildAssetResource(BuildTarget.Android);
     }
 
     [MenuItem("LuaFramework/Build Windows Resource", false, 102)]
     public static void BuildWindowsResource() {
-        BuildAssetResource(BuildTarget.StandaloneWindows, true);
+        BuildAssetResource(BuildTarget.StandaloneWindows);
     }
 
     /// <summary>
     /// 生成绑定素材
     /// </summary>
-    public static void BuildAssetResource(BuildTarget target, bool isWin) {
+    public static void BuildAssetResource(BuildTarget target) {
         if (Directory.Exists(Util.DataPath)) {
             Directory.Delete(Util.DataPath, true);
         }
@@ -69,7 +69,7 @@ public class Packager {
         if (AppConst.LuaBundleMode) {
             ToLuaMenu.BuildNotJitBundles();
         } else {
-            HandleLuaFile(isWin);
+            HandleLuaFile();
         }
         BuildFileIndex();
         AssetDatabase.Refresh();
@@ -123,7 +123,7 @@ public class Packager {
     /// <summary>
     /// 处理Lua文件
     /// </summary>
-    static void HandleLuaFile(bool isWin) {
+    static void HandleLuaFile() {
         string resPath = AppDataPath + "/StreamingAssets/";
         string luaPath = resPath + "/lua/";
 
@@ -150,7 +150,7 @@ public class Packager {
                     File.Delete(newpath);
                 }
                 if (AppConst.LuaByteMode) {
-                    EncodeLuaFile(f, newpath, isWin);
+                    EncodeLuaFile(f, newpath);
                 } else {
                     File.Copy(f, newpath, true);
                 }
@@ -214,20 +214,23 @@ public class Packager {
         EditorUtility.DisplayProgressBar(title, desc, value);
     }
 
-    public static void EncodeLuaFile(string srcFile, string outFile, bool isWin) {
+    public static void EncodeLuaFile(string srcFile, string outFile) {
         if (!srcFile.ToLower().EndsWith(".lua")) {
             File.Copy(srcFile, outFile, true);
             return;
         }
+        bool isWin = true; 
         string luaexe = string.Empty;
         string args = string.Empty;
         string exedir = string.Empty;
         string currDir = Directory.GetCurrentDirectory();
         if (Application.platform == RuntimePlatform.WindowsEditor) {
+            isWin = true;
             luaexe = "luajit.exe";
             args = "-b " + srcFile + " " + outFile;
             exedir = AppDataPath.Replace("assets", "") + "LuaEncoder/luajit/";
         } else if (Application.platform == RuntimePlatform.OSXEditor) {
+            isWin = false;
             luaexe = "./luac";
             args = "-o " + outFile + " " + srcFile;
             exedir = AppDataPath.Replace("assets", "") + "LuaEncoder/luavm/";
@@ -237,7 +240,7 @@ public class Packager {
         info.FileName = luaexe;
         info.Arguments = args;
         info.WindowStyle = ProcessWindowStyle.Hidden;
-        //info.UseShellExecute = isWin;
+        info.UseShellExecute = isWin;
         info.ErrorDialog = true;
         Util.Log(info.FileName + " " + info.Arguments);
 

@@ -158,7 +158,7 @@ public class LuaFileUtils
             fileName = fileName.Substring(pos + 1);
         }
 
-        zipMap.TryGetValue(zipName, out zipFile);        
+        zipMap.TryGetValue(zipName.ToLower(), out zipFile);        
 
         if (zipFile != null)
         {
@@ -167,7 +167,6 @@ public class LuaFileUtils
 #else
             TextAsset luaCode = zipFile.Load(fileName, typeof(TextAsset)) as TextAsset;
 #endif            
-
             if (luaCode != null)
             {
                 buffer = luaCode.bytes;
