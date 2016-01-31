@@ -6,12 +6,9 @@ using LuaInterface;
 using System.Reflection;
 using System.IO;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
 namespace LuaFramework {
-    public class GameManager : LuaBehaviour {
+    public class GameManager : Manager {
+        protected static bool initialize = false;
         private List<string> downloadFiles = new List<string>();
 
         /// <summary>
@@ -232,51 +229,22 @@ namespace LuaFramework {
             }
         }
 
-        /// <summary>
-        /// 资源初始化结束
-        /// </summary>
-        public void OnResourceInited() {
-            LuaManager.InitStart();
-            LuaManager.DoFile("Logic/Network");       //加载网络
-            LuaManager.DoFile("Logic/GameManager");    //加载游戏
-            initialize = true;                     //初始化完 
-
-            NetManager.OnInit();    //初始化网络
-
-            object[] panels = CallMethod("LuaPanels");  
-            //---------------------Lua面板---------------------------
-            foreach (object o in panels) {
-                string name = o.ToString().Trim();
-                if (string.IsNullOrEmpty(name)) continue;
-
-                LuaManager.DoFile("View/" + name);
-                Debug.LogWarning("LoadLua---->>>>" + name + ".lua");
-            }
-            //------------------------------------------------------------
-            CallMethod("OnInitOK");   //初始化完成
-        }
-
         void OnUpdateFailed(string file) {
             string message = "更新失败!>" + file;
             facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
         }
 
-        void Update() {
-            if (LuaManager != null && initialize) {
-                //LuaManager.Update();
-            }
-        }
+        /// <summary>
+        /// 资源初始化结束
+        /// </summary>
+        public void OnResourceInited() {
+            LuaManager.InitStart();
+            LuaManager.DoFile("Logic/Game");            //加载游戏
+            LuaManager.DoFile("Logic/Network");         //加载网络
+            NetManager.OnInit();                        //初始化网络
 
-        void LateUpdate() {
-            if (LuaManager != null && initialize) {
-                //LuaManager.LateUpate();
-            }
-        }
-
-        void FixedUpdate() {
-            if (LuaManager != null && initialize) {
-                //LuaManager.FixedUpdate();
-            }
+            Util.CallMethod(name, "OnInitOK");          //初始化完成
+            initialize = true;                          //初始化完 
         }
 
         /// <summary>

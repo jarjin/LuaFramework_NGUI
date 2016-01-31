@@ -6,26 +6,24 @@ using System;
 
 namespace LuaFramework {
     public class LuaBehaviour : Base {
-        protected static bool initialize = false;
-
         private string data = null;
         private AssetBundle bundle = null;
         private Dictionary<string, LuaFunction> buttons = new Dictionary<string, LuaFunction>();
 
         protected void Awake() {
-            CallMethod("Awake", gameObject);
+            Util.CallMethod(name, "Awake", gameObject);
         }
 
         protected void Start() {
-            CallMethod("Start");
+            Util.CallMethod(name, "Start");
         }
 
         protected void OnClick() {
-            CallMethod("OnClick");
+            Util.CallMethod(name, "OnClick");
         }
 
         protected void OnClickEvent(GameObject go) {
-            CallMethod("OnClick", go);
+            Util.CallMethod(name, "OnClick", go);
         }
 
         /// <summary>
@@ -83,14 +81,6 @@ namespace LuaFramework {
             buttons.Clear();
         }
         
-        /// <summary>
-        /// 执行Lua方法
-        /// </summary>
-        protected object[] CallMethod(string func, params object[] args) {
-            if (!initialize) return null;
-            return Util.CallMethod(name, func, args);
-        }
-
         //-----------------------------------------------------------------
         protected void OnDestroy() {
             if (bundle) {
