@@ -243,7 +243,7 @@ namespace LuaFramework {
             LuaManager.DoFile("Logic/Network");         //加载网络
             NetManager.OnInit();                        //初始化网络
 
-            Util.CallMethod(name, "OnInitOK");          //初始化完成
+            Util.CallMethod("Game", "OnInitOK");          //初始化完成
             initialize = true;                          //初始化完 
         }
 

@@ -22,12 +22,6 @@ namespace LuaFramework {
         public const bool LuaByteMode = false;                     //Lua字节码模式-默认关闭 
         public const bool LuaBundleMode = false;                   //Lua代码AssetBundle模式-默认关闭 
 
-        public const bool UsePbc = true;                           //PBC
-        public const bool UseLpeg = true;                          //lpeg
-        public const bool UsePbLua = true;                         //Protobuff-lua-gen
-        public const bool UseCJson = true;                         //CJson
-        public const bool UseSproto = true;                        //Sproto
-
         public const int TimerInterval = 1;
         public const int GameFrameRate = 30;                       //游戏帧频
 
