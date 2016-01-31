@@ -67,12 +67,34 @@ public class Packager {
             HandleExampleBundle(target);
         }
         if (AppConst.LuaBundleMode) {
-            ToLuaMenu.BuildNotJitBundles();
+            HandleBundle();
         } else {
             HandleLuaFile();
         }
         BuildFileIndex();
         AssetDatabase.Refresh();
+    }
+
+    static void HandleBundle() {
+        ToLuaMenu.BuildNotJitBundles();
+        string luaPath = AppDataPath + "/StreamingAssets/lua/";
+        string[] luaPaths = { AppDataPath + "/LuaFramework/lua/", 
+                              AppDataPath + "/LuaFramework/Tolua/Lua/" };
+
+        for (int i = 0; i < luaPaths.Length; i++) {
+            paths.Clear(); files.Clear();
+            string luaDataPath = luaPaths[i].ToLower();
+            Recursive(luaDataPath);
+            foreach (string f in files) {
+                if (f.EndsWith(".meta") || f.EndsWith(".lua")) continue;
+                string newfile = f.Replace(luaDataPath, "");
+                string path = Path.GetDirectoryName(luaPath + newfile);
+                if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+
+                string destfile = path + "/" + Path.GetFileName(f);
+                File.Copy(f, destfile, true);
+            }
+        }
     }
 
     static void HandleExampleBundle(BuildTarget target) {
@@ -124,8 +146,7 @@ public class Packager {
     /// 处理Lua文件
     /// </summary>
     static void HandleLuaFile() {
-        string resPath = AppDataPath + "/StreamingAssets/";
-        string luaPath = resPath + "/lua/";
+        string luaPath = AppDataPath + "/StreamingAssets/lua/";
 
         //----------复制Lua文件----------------
         if (!Directory.Exists(luaPath)) {

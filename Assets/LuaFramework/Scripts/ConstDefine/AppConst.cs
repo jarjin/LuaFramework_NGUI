@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LuaFramework {
     public class AppConst {
-        public const bool DebugMode = true;                        //调试模式-用于内部测试
+        public const bool DebugMode = false;                        //调试模式-用于内部测试
 
         /// <summary>
         /// 如果想删掉框架自带的例子，那这个例子模式必须要
@@ -20,7 +20,7 @@ namespace LuaFramework {
         /// </summary>
         public const bool UpdateMode = false;                      //更新模式-默认关闭 
         public const bool LuaByteMode = false;                     //Lua字节码模式-默认关闭 
-        public const bool LuaBundleMode = false;                   //Lua代码AssetBundle模式-默认关闭 
+        public const bool LuaBundleMode = true;                   //Lua代码AssetBundle模式-默认关闭 
 
         public const int TimerInterval = 1;
         public const int GameFrameRate = 30;                       //游戏帧频
