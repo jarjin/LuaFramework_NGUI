@@ -604,12 +604,13 @@ public static class ToLuaMenu
     {
         BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets | 
                                           BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.UncompressedAssetBundle;
-
-        string[] files = Directory.GetFiles("Assets/" + AppConst.LuaTempDir + dir, "*.lua.bytes");
+        string path = "Assets/" + AppConst.LuaTempDir + dir;
+        string[] files = Directory.GetFiles(path, "*.lua.bytes");
         List<Object> list = new List<Object>();
         string bundleName = "Lua.unity3d";
         if (dir != null) {
-            bundleName = "Lua_" + dir.Replace('\\', '_') + AppConst.ExtName;
+        	dir = dir.Replace('\\', '_').Replace('/', '_');
+            bundleName = "Lua_" + dir + AppConst.ExtName;
         } 
         for (int i = 0; i < files.Length; i++)
         {
