@@ -14,7 +14,7 @@ end
 
 function MessageCtrl.Awake()
 	logWarn("MessageCtrl.Awake--->>");
-	PanelManager:CreatePanel('Message', this.OnCreate);
+	panelMgr:CreatePanel('Message', this.OnCreate);
 end
 
 --启动事件--
@@ -37,5 +37,5 @@ end
 
 --关闭事件--
 function MessageCtrl.Close()
-	PanelManager:ClosePanel(CtrlName.Message);
+	panelMgr:ClosePanel(CtrlNames.Message);
 end
