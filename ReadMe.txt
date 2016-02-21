@@ -15,6 +15,9 @@ tolua#地址： https://github.com/topameng/tolua
 tolua#底层库 https://github.com/topameng/tolua_runtime
 服务器框架:  https://github.com/jarjin/ServerFramework
 
+//-------------2016-02-21-------------
+(1)修复Load lua file failed: tolua.lua
+
 //-------------2016-01-31-------------
 (1)简化框架加载流程。
 (2)集成第三方库pblua\pbc\cjson\sproto等功能。
