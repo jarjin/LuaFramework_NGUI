@@ -15,6 +15,9 @@ tolua#地址： https://github.com/topameng/tolua
 tolua#底层库 https://github.com/topameng/tolua_runtime
 服务器框架:  https://github.com/jarjin/ServerFramework
 
+//-------------2016-02-28-------------
+(1)修复ByteBuffer.cs的WriteBuffer函数
+
 //-------------2016-02-21-------------
 (1)修复Load lua file failed: tolua.lua
 
