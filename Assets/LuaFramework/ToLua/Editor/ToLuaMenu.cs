@@ -667,10 +667,10 @@ public static class ToLuaMenu
         string path = "Assets/" + AppConst.LuaTempDir + dir;
         string[] files = Directory.GetFiles(path, "*.lua.bytes");
         List<Object> list = new List<Object>();
-        string bundleName = "Lua.unity3d";
+        string bundleName = "lua.unity3d";
         if (dir != null) {
         	dir = dir.Replace('\\', '_').Replace('/', '_');
-            bundleName = "Lua_" + dir + AppConst.ExtName;
+            bundleName = "lua_" + dir.ToLower() + AppConst.ExtName;
         } 
         for (int i = 0; i < files.Length; i++)
         {
@@ -842,7 +842,7 @@ public static class ToLuaMenu
     public static void BuildNotJitBundles()
     {
         ClearAllLuaFiles();
-        CreateStreamDir("Lua/");
+        CreateStreamDir("lua/");
         CreateStreamDir(AppConst.LuaTempDir);
 
         string dir = Application.persistentDataPath;
