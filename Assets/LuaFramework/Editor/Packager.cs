@@ -76,7 +76,7 @@ public class Packager {
     }
 
     static void HandleBundle() {
-        ToLuaMenu.BuildNotJitBundles();
+        BuildLuaBundles();
         string luaPath = AppDataPath + "/StreamingAssets/lua/";
         string[] luaPaths = { AppDataPath + "/LuaFramework/lua/", 
                               AppDataPath + "/LuaFramework/Tolua/Lua/" };
@@ -94,6 +94,124 @@ public class Packager {
                 string destfile = path + "/" + Path.GetFileName(f);
                 File.Copy(f, destfile, true);
             }
+        }
+    }
+
+    static void ClearAllLuaFiles() {
+        string osPath = Application.streamingAssetsPath + "/" + LuaConst.osDir;
+
+        if (Directory.Exists(osPath)) {
+            string[] files = Directory.GetFiles(osPath, "Lua*.unity3d");
+
+            for (int i = 0; i < files.Length; i++) {
+                File.Delete(files[i]);
+            }
+        }
+
+        string path = osPath + "/Lua";
+
+        if (Directory.Exists(path)) {
+            Directory.Delete(path, true);
+        }
+
+        path = Application.dataPath + "/Resources/Lua";
+
+        if (Directory.Exists(path)) {
+            Directory.Delete(path, true);
+        }
+
+        path = Application.persistentDataPath + "/" + LuaConst.osDir + "/Lua";
+
+        if (Directory.Exists(path)) {
+            Directory.Delete(path, true);
+        }
+    }
+
+    static void CreateStreamDir(string dir) {
+        dir = Application.streamingAssetsPath + "/" + dir;
+
+        if (!File.Exists(dir)) {
+            Directory.CreateDirectory(dir);
+        }
+    }
+
+    static void CopyLuaBytesFiles(string sourceDir, string destDir, bool appendext = true) {
+        if (!Directory.Exists(sourceDir)) {
+            return;
+        }
+
+        string[] files = Directory.GetFiles(sourceDir, "*.lua", SearchOption.AllDirectories);
+        int len = sourceDir.Length;
+
+        if (sourceDir[len - 1] == '/' || sourceDir[len - 1] == '\\') {
+            --len;
+        }
+
+        for (int i = 0; i < files.Length; i++) {
+            string str = files[i].Remove(0, len);
+            string dest = destDir + str;
+            if (appendext) dest += ".bytes";
+            string dir = Path.GetDirectoryName(dest);
+            Directory.CreateDirectory(dir);
+
+            if (AppConst.LuaByteMode) {
+                Packager.EncodeLuaFile(files[i], dest);
+            } else {
+                File.Copy(files[i], dest, true);
+            }
+        }
+    }
+
+    static void BuildLuaBundles() {
+        ClearAllLuaFiles();
+        CreateStreamDir("lua/");
+        CreateStreamDir(AppConst.LuaTempDir);
+
+        string dir = Application.persistentDataPath;
+        if (!File.Exists(dir)) {
+            Directory.CreateDirectory(dir);
+        }
+
+        string streamDir = Application.dataPath + "/" + AppConst.LuaTempDir;
+        CopyLuaBytesFiles(CustomSettings.luaDir, streamDir);
+        CopyLuaBytesFiles(CustomSettings.FrameworkPath + "/ToLua/Lua", streamDir);
+
+        AssetDatabase.Refresh();
+        string[] dirs = Directory.GetDirectories(streamDir, "*", SearchOption.AllDirectories);
+
+        for (int i = 0; i < dirs.Length; i++) {
+            string str = dirs[i].Remove(0, streamDir.Length);
+            BuildLuaBundle(str);
+        }
+
+        BuildLuaBundle(null);
+        Directory.Delete(streamDir, true);
+        AssetDatabase.Refresh();
+    }
+
+    static void BuildLuaBundle(string dir) {
+        BuildAssetBundleOptions options = BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets |
+                                          BuildAssetBundleOptions.DeterministicAssetBundle | BuildAssetBundleOptions.UncompressedAssetBundle;
+        string path = "Assets/" + AppConst.LuaTempDir + dir;
+        string[] files = Directory.GetFiles(path, "*.lua.bytes");
+        List<Object> list = new List<Object>();
+        string bundleName = "lua.unity3d";
+        if (dir != null) {
+            dir = dir.Replace('\\', '_').Replace('/', '_');
+            bundleName = "lua_" + dir.ToLower() + AppConst.ExtName;
+        }
+        for (int i = 0; i < files.Length; i++) {
+            Object obj = AssetDatabase.LoadMainAssetAtPath(files[i]);
+            list.Add(obj);
+        }
+
+        if (files.Length > 0) {
+            string output = Application.streamingAssetsPath + "/lua/" + bundleName;
+            if (File.Exists(output)) {
+                File.Delete(output);
+            }
+            BuildPipeline.BuildAssetBundle(null, list.ToArray(), output, options, EditorUserBuildSettings.activeBuildTarget);
+            AssetDatabase.Refresh();
         }
     }
 
