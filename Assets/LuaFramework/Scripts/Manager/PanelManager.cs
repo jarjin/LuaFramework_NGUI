@@ -22,18 +22,24 @@ namespace LuaFramework {
         /// </summary>
         /// <param name="type"></param>
         public void CreatePanel(string name, LuaFunction func = null) {
-            AssetBundle bundle = ResManager.LoadBundle(name);
-            StartCoroutine(StartCreatePanel(name, bundle, func));
-            Debug.LogWarning("CreatePanel::>> " + name + " " + bundle);
+            StartCoroutine(StartCreatePanel(name, func));
         }
 
         /// <summary>
         /// ´´½¨Ãæ°å
         /// </summary>
-        IEnumerator StartCreatePanel(string name, AssetBundle bundle, LuaFunction func = null) {
+        IEnumerator StartCreatePanel(string name, LuaFunction func = null) {
+            AssetBundle bundle = ResManager.LoadBundle(name);
+
             name += "Panel";
-            GameObject prefab = Util.LoadAsset(bundle, name);
+            GameObject prefab = null;
+#if UNITY_5
+            prefab = bundle.LoadAsset(name, typeof(GameObject)) as GameObject;
+#else
+            prefab = bundle.Load(name, typeof(GameObject)) as GameObject;
+#endif
             yield return new WaitForEndOfFrame();
+
             if (Parent.FindChild(name) != null || prefab == null) {
                 yield break;
             }

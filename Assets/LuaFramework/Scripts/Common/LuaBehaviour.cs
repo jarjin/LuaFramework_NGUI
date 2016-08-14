@@ -41,7 +41,11 @@ namespace LuaFramework {
         /// <param name="name"></param>
         public GameObject LoadAsset(string name) {
             if (bundle == null) return null;
-            return Util.LoadAsset(bundle, name);
+#if UNITY_5
+            return bundle.LoadAsset(name, typeof(GameObject)) as GameObject;
+#else
+            return bundle.Load(name, typeof(GameObject)) as GameObject;
+#endif
         }
 
         /// <summary>

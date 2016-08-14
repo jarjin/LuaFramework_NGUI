@@ -12,16 +12,13 @@ namespace LuaFramework {
         /// </summary>
         public void initialize(Action func) {
             if (AppConst.ExampleMode) {
-                byte[] stream;
-                string uri = string.Empty;
                 //------------------------------------Shared--------------------------------------
-                uri = Util.DataPath + "shared" + AppConst.ExtName;
+                string uri = Util.DataPath + "shared" + AppConst.ExtName;
                 Debug.LogWarning("LoadFile::>> " + uri);
 
-                stream = File.ReadAllBytes(uri);
-                shared = AssetBundle.CreateFromMemoryImmediate(stream);
+                shared = AssetBundle.CreateFromFile(uri);
 #if UNITY_5
-        shared.LoadAsset("Dialog", typeof(GameObject));
+                shared.LoadAsset("Dialog", typeof(GameObject));
 #else
                 shared.Load("Dialog", typeof(GameObject));
 #endif
@@ -33,11 +30,8 @@ namespace LuaFramework {
         /// 载入素材
         /// </summary>
         public AssetBundle LoadBundle(string name) {
-            byte[] stream = null;
-            AssetBundle bundle = null;
             string uri = Util.DataPath + name.ToLower() + AppConst.ExtName;
-            stream = File.ReadAllBytes(uri);
-            bundle = AssetBundle.CreateFromMemoryImmediate(stream); //关联数据的素材绑定
+            AssetBundle bundle = AssetBundle.CreateFromFile(uri); //关联数据的素材绑定
             return bundle;
         }
 
