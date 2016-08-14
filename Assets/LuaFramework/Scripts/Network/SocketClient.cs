@@ -13,6 +13,8 @@ public enum DisType {
 }
 
 public class SocketClient {
+    public static bool loggedIn = false;
+
     private TcpClient client = null;
     private NetworkStream outStream = null;
     private MemoryStream memStream;
@@ -20,7 +22,6 @@ public class SocketClient {
 
     private const int MAX_READ = 8192;
     private byte[] byteBuffer = new byte[MAX_READ];
-    public static bool loggedIn = false;
 
     // Use this for initialization
     public SocketClient() {
@@ -109,7 +110,6 @@ public class SocketClient {
                 client.GetStream().BeginRead(byteBuffer, 0, MAX_READ, new AsyncCallback(OnRead), null);
             }
         } catch (Exception ex) {
-            //PrintBytes();
             OnDisconnected(DisType.Exception, ex.Message);
         }
     }
