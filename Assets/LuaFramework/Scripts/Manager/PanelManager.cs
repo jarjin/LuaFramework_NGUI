@@ -50,5 +50,16 @@ namespace LuaFramework {
             if (func != null) func.Call(go);
             Debug.Log("StartCreatePanel------>>>>" + name);
         }
+
+        /// <summary>
+        /// πÿ±’√Ê∞Â
+        /// </summary>
+        /// <param name="name"></param>
+        public void ClosePanel(string name) {
+            var panelName = name + "Panel";
+            var panelObj = Parent.FindChild(panelName);
+            if (panelObj == null) return;
+            Destroy(panelObj.gameObject);
+        }
     }
 }
