@@ -108,6 +108,9 @@ public static class CustomSettings
         _GT(typeof(AsyncOperation)).SetBaseType(typeof(System.Object)),        
         _GT(typeof(LightType)),
         _GT(typeof(SleepTimeout)),
+#if UNITY_5_3_OR_NEWER
+        _GT(typeof(UnityEngine.Experimental.Director.DirectorPlayer)),
+#endif
         _GT(typeof(Animator)),
         _GT(typeof(Input)),
         _GT(typeof(KeyCode)),
@@ -115,10 +118,12 @@ public static class CustomSettings
         _GT(typeof(Space)),      
        
 
-        _GT(typeof(MeshRenderer)),            
+        _GT(typeof(MeshRenderer)),
+#if !UNITY_5_4_OR_NEWER
         _GT(typeof(ParticleEmitter)),
         _GT(typeof(ParticleRenderer)),
         _GT(typeof(ParticleAnimator)), 
+#endif
                               
         _GT(typeof(BoxCollider)),
         _GT(typeof(MeshCollider)),
@@ -137,7 +142,8 @@ public static class CustomSettings
         _GT(typeof(QualitySettings)),
         _GT(typeof(RenderSettings)),                                                   
         _GT(typeof(BlendWeights)),           
-        _GT(typeof(RenderTexture)),       
+        _GT(typeof(RenderTexture)),  
+		_GT(typeof(Resources)),     
           
         //for LuaFramework
         _GT(typeof(UIPanel)),
@@ -163,9 +169,11 @@ public static class CustomSettings
     public static List<Type> dynamicList = new List<Type>()
     {
         typeof(MeshRenderer),
+#if !UNITY_5_4_OR_NEWER
         typeof(ParticleEmitter),
         typeof(ParticleRenderer),
         typeof(ParticleAnimator),
+#endif
 
         typeof(BoxCollider),
         typeof(MeshCollider),
