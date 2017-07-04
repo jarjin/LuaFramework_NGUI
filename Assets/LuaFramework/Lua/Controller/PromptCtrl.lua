@@ -52,7 +52,7 @@ function PromptCtrl.InitPanel()
 		go.transform.localPosition = Vector3.zero;
 		prompt:AddClick(go, this.OnItemClick);
 
-		local goo = go.transform:FindChild('Label');
+		local goo = go.transform:Find('Label');
 		goo:GetComponent('UILabel').text = i;
 	end
 	local grid = parent:GetComponent('UIGrid');
