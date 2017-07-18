@@ -370,9 +370,9 @@ public class Packager {
             exedir = AppDataPath.Replace("assets", "") + "LuaEncoder/luajit/";
         } else if (Application.platform == RuntimePlatform.OSXEditor) {
             isWin = false;
-            luaexe = "./luac";
-            args = "-o " + outFile + " " + srcFile;
-            exedir = AppDataPath.Replace("assets", "") + "LuaEncoder/luavm/";
+            luaexe = "./luajit";
+            args = "-b " + srcFile + " " + outFile;
+            exedir = AppDataPath.Replace("assets", "") + "LuaEncoder/luajit_mac/";
         }
         Directory.SetCurrentDirectory(exedir);
         ProcessStartInfo info = new ProcessStartInfo();
