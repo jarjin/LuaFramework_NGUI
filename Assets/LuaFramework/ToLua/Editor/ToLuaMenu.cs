@@ -48,7 +48,10 @@ public static class ToLuaMenu
 #if !UNITY_5 && !UNITY_2017
         typeof(Motion),                                     //很多平台只是空类
 #endif
-        //typeof(UnityEngine.CustomYieldInstruction),
+
+#if UNITY_5_3_OR_NEWER
+        typeof(UnityEngine.CustomYieldInstruction),
+#endif
         typeof(UnityEngine.YieldInstruction),               //无需导出的类      
         typeof(UnityEngine.WaitForEndOfFrame),              //内部支持
         typeof(UnityEngine.WaitForFixedUpdate),
